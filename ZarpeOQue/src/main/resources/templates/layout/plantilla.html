@@ -48,14 +48,33 @@
         
         
 
-        <footer th:fragment="footer" class="bg-dark text-white mt-5 p-2">
-            <div class="container">
-                <div class="col">
-                    <p class="lead text-center">
-                        &COPY [[#{plantilla.derechos}]]
-                    </p>
-                </div>
-            </div>
-        </footer>
+<footer class="bg-dark text-center text-lg-start bg-body-tertiary text-bg-dark p-3">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>[[#{plantilla.redesSociales}]]</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+        <a href="https://www.facebook.com/LicoElZarpeoQue/" target="_blank" class="me-4 text-reset">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/zarpeoque/?hl=es" target="_blank" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4">
+    &COPY [[#{plantilla.derechos}]]
+  </div>
+  <!-- Copyright -->
+</footer>
     </body>
 </html>
