@@ -9,4 +9,5 @@ nav a:hover {
     color: #ffcb6f !important;
     transition-delay: 0.1s;
     transition: 1s;
+    border-radius: 30%;
 }
