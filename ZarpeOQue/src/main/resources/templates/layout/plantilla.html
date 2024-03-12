@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:fragment="head">
         <title>ZarpeOQue</title>
         <meta charset="UTF-8"/>
@@ -46,8 +46,25 @@
                 </div>
             </section>
         </header>
-        
-        
+
+        <section th:fragment="botonMenuPrincipal">
+            <div class="card" style="width: 18rem; bottom: 30%; position: fixed;">
+                <img src="/img/Licor.jpg" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <h5 class="card-title">Categoria 1</h5>
+                    <p class="card-text"> Aqui encontrarás....</p>
+                    <a href="#" class="btn btn-primary"> Ir </a>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem; left: 30%; bottom: 30%; position: fixed;">
+                <img src="/img/Carne.jpg" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <h5 class="card-title">Categoria 2</h5>
+                    <p class="card-text"> Aqui se encuentra....</p>
+                    <a href="#" class="btn btn-primary"> Ir </a>
+                </div>
+            </div>
+        </section>
 
         <table th:fragment="tablaCarrito" class="table table-striped table-sm tablaCarrito position-absolute">
             <thead class="table-dark">
@@ -62,18 +79,18 @@
                     <td>1</td>
                     <td>Nombre Producto 1</td>
                     <td>1000</td>
-                    </tr>
-                    <tr>
+                </tr>
+                <tr>
                     <td>2</td>
                     <td>Nombre Producto 2</td>
                     <td>500</td>
-                    </tr>
-                    <tr>
+                </tr>
+                <tr>
                     <td>3</td>
                     <td>Nombre Producto 3</td>
                     <td>2000</td>
-                    </tr>
-                
+                </tr>
+
             </tbody>
             <tfoot class="table-dark">
                 <tr><th></th>
@@ -82,8 +99,8 @@
                 </tr>
             </tfoot>
         </table>
-        
-        
+
+
 
         <footer class="bg-dark text-center text-lg-start bg-body-tertiary text-bg-dark translate-middle-x footerAbsoluto">
             <!-- Section: Social media -->
