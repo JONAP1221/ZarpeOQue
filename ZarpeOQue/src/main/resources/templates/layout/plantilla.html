@@ -28,6 +28,7 @@
                         <div class="col-md-3">
                             <ul class="navbar-nav">                                
                                 <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/menu/inicio}">[[#{plantilla.login}]]</a></li>
+                                <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/menu/registro}">[[#{plantilla.registro}]]</a></li>
                                 <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=en)}">EN</a></li>
                             </ul>
                         </div>
@@ -81,7 +82,77 @@
             </div>
         </section>
         
+        <section th:fragment="registro" class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <div class="d-grid gap-2 d-md-flex justify-content-center">
+                                    <button type="button" class="btn btn-secondary" disabled>Registro Cliente</button>
+                                    <a th:href="@{/menu/registroEmpleado}" class="btn btn-secondary">Registro Empleado</a><br>
+                                </div>
+                                <div>
+                                    <h2 class="fw-bold mb-2 text-uppercase">[[#{plantilla.registro}]]</h2>
+                                    <p class="text-white-50 mb-5">[[#{registro.descripcion}]]</p>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="typeNombreX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeNombreX">[[#{usuario.nombre}]]</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">[[#{usuario.correo}]]</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
+                                    </div>
+                                    <button class="btn btn-outline-light btn-lg px-5" th:text="#{plantilla.registro}"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
+        <section th:fragment="registroEmpleado" class="vh-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-center">
+                                        <a th:href="@{/menu/registro}" class="btn btn-secondary">Registro Cliente</a>
+                                        <button type="button" class="btn btn-secondary" disabled>Registro Empleado</button><br>
+                                    </div>
+                                    <h2 class="fw-bold mb-2 text-uppercase">[[#{plantilla.registro}]]</h2>
+                                    <p class="text-white-50 mb-5">[[#{registro.descripcion}]]</p>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="typeIdEmpleado" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeIdEmpleado">[[#{empleado.id}]]</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="typeNombreEmpleado" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeNombreEmpleado">[[#{usuario.nombre}]]</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailEmpleado" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailEmpleado">[[#{usuario.correo}]]</label>
+                                    </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="typePasswordEmpleado" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typePasswordEmpleado">[[#{usuario.password}]]</label>
+                                    </div>
+                                    <button class="btn btn-outline-light btn-lg px-5" th:text="#{plantilla.registro}"></button>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <section th:fragment="botonMenuPrincipal">
             <div class="card" style="width: 18rem; bottom: 30%; position: fixed; left: 30px">
