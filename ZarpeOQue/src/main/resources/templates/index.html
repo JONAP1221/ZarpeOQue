@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
@@ -5,6 +6,11 @@
         <title>ZarpeOQue</title>  
    </head>
     <body>
-        <section th:replace="~{layout/plantilla :: login}"/>        
+        <header th:replace="~{layout/plantilla :: header}"/>
+        
+        <section th:replace="~{layout/plantilla :: botonMenuPrincipal}"/>
+        <table th:replace="~{layout/plantilla :: tablaCarrito}"/>
+        
+        <footer th:replace="~{layout/plantilla :: footer}"/>        
     </body>
 </html>
