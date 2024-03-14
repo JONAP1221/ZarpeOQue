@@ -30,6 +30,7 @@
                                 <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/menu/inicio}">[[#{plantilla.login}]]</a></li>
                                 <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/menu/registro}">[[#{plantilla.registro}]]</a></li>
                                 <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=en)}">EN</a></li>
+                                <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=es)}">ES</a></li>
                             </ul>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
                                         <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
                                     </div>
                                     <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">[[#{login.password}]]</a></p>
-                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/menu/inicio}" role="button">[[#{login.login}]]</a>
+                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{login.login}]]</a>
                                     <div class="d-flex justify-content-center text-center mt-4 pt-1">
                                         <a href="https://www.facebook.com/LicoElZarpeoQue/" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
                                         <a href="https://www.instagram.com/zarpeoque/?hl=es" target="_blank" class="text-white"><i class="fab fa-instagram fa-lg mx-4 px-2"></i></a>
@@ -107,7 +108,7 @@
                                         <input type="password" id="typePasswordX" class="form-control form-control-lg" />
                                         <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
                                     </div>
-                                    <button class="btn btn-outline-light btn-lg px-5" th:text="#{plantilla.registro}"></button>
+                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{login.login}]]</a>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +146,7 @@
                                         <input type="password" id="typePasswordEmpleado" class="form-control form-control-lg" />
                                         <label class="form-label" for="typePasswordEmpleado">[[#{usuario.password}]]</label>
                                     </div>
-                                    <button class="btn btn-outline-light btn-lg px-5" th:text="#{plantilla.registro}"></button>
+                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{login.login}]]</a>
                                 </div>                               
                             </div>
                         </div>
