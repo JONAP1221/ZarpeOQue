@@ -32,8 +32,8 @@
                                 <li class="nav-item px-2"><a class="nav-link" th:href="@{/(lang=en)}">EN</a></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
+                        </div>
+                    </div>                
             </nav>
             <section id="main-header" class="py-2 titulo">
                 <div class="container">
@@ -65,7 +65,7 @@
                                         <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
                                     </div>
                                     <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">[[#{login.password}]]</a></p>
-                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/menu/inicio}" role="button">[[#{login.login}]]</a>
+                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{templates/index}" role="button">[[#{login.login}]]</a>
                                     <div class="d-flex justify-content-center text-center mt-4 pt-1">
                                         <a href="https://www.facebook.com/LicoElZarpeoQue/" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
                                         <a href="https://www.instagram.com/zarpeoque/?hl=es" target="_blank" class="text-white"><i class="fab fa-instagram fa-lg mx-4 px-2"></i></a>
@@ -161,16 +161,12 @@
                     <h5 class="card-title">Categoria 1</h5>
                     <p class="card-text"> Aqui encontrarás....</p>
                     <a href="#" class="btn btn-primary"> Ir </a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem; left: 30%; bottom: 30%; position: fixed;">
+                    <div class="card" style="width: 18rem; left: 30%; bottom: 30%; position: fixed;">
                 <img src="/img/Carne.jpg" class="card-img-top" alt="..."/>
                 <div class="card-body">
                     <h5 class="card-title">Categoria 2</h5>
                     <p class="card-text"> Aqui se encuentra....</p>
                     <a href="#" class="btn btn-primary"> Ir </a>
-                </div>
-            </div>
         </section>
 
         
