@@ -4,7 +4,7 @@ drop schema if exists ZarpeOQue;
 CREATE SCHEMA ZarpeOQue ;
 
 #Se crea un usuario para la base de datos llamado "Admin" y tiene la contraseña "Admin404."
-create user if not exists 'Admin'@'%' identified by 'Admin404';
+create user 'Admin'@'%' identified by 'Admin404';
 
 #Se asignan los prvilegios sobr ela base de datos ZarpeOQue al usuario creado
 grant all privileges on ZarpeOQue.* to 'Admin'@'%';
