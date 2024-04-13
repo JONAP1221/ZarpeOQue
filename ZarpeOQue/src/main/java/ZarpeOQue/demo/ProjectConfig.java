@@ -68,6 +68,7 @@ public class ProjectConfig implements WebMvcConfigurer{
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
     
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -98,6 +99,31 @@ public class ProjectConfig implements WebMvcConfigurer{
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
+    
+    
+    /*
+    @Bean
+    public UserDetailsService users() {
+        UserDetails admin = User.builder()
+                .username("Orslok")
+                .password("{noop}hola")
+                .roles("USER", "VENDEDOR", "ADMIN")
+                .build();
+        UserDetails sales = User.builder()
+                .username("gabriel")
+                .password("{noop}macho")
+                .roles("USER", "VENDEDOR")
+                .build();
+        UserDetails user = User.builder()
+                .username("jhonatan")
+                .password("{noop}guapo")
+                .roles("USER")
+                .build();
+        return new InMemoryUserDetailsManager(user, sales, admin);
+    }
+    */
+    
+
     
     @Autowired
     private UserDetailsService userDetailsService;

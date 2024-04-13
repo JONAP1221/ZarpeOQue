@@ -21,9 +21,10 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav align-items-center" style="margin-top: 10px; margin-bottom: 10px;">
                             <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
+                            <li sec:authorize="hasRole('VENDEDOR')"><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                         </ul>
                         <div class="col-md-3">
                             <ul class="navbar-nav">
@@ -34,11 +35,16 @@
                             </ul>
                             <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                                 <li class="nav-item">
+
                                     <a class="nav-link" th:href="@{/login}">
+
+                                    <a class="nav-link" th:href="@{/Login}">
+
                                         <i class="fas fa-sign-in-alt"></i>
                                     </a>
                                 </li>
                             </ul>
+
                             <ul class="navbar-nav" sec:authorize="isAuthenticated()">
                                 <li class="nav-item text-white my-auto">
                                     <img th:src="@{${session.usuarioImagen}}" height="40" class="rounded-circle"/>
@@ -52,7 +58,21 @@
                                     </form>
                                 </li>
                             </ul>
+
                         </div>
+                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                            <li class="nav-item my-auto">
+                                <form method="post" th:action="@{/logout}">
+                                    <button class="btn btn-dark" type="submit">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+                                </form>
+                            </li>
+                            <li class="nav-item text-white my-auto">
+                                <img th:src="@{${session.usuarioImagen}}" height="40" class="rounded-circle"/>
+                                <span sec:authentication="name">Santi</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
