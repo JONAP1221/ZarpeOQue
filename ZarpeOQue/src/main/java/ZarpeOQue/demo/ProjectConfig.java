@@ -74,7 +74,7 @@ public class ProjectConfig implements WebMvcConfigurer{
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/","/index","/errores/**",
                         "/carrito/**","/pruebas/**","/reportes/**",
-                        "/registro/**","/js/**","/webjars/**","/css**/","/img/**")
+                        "/registro/**","/js/**","/webjars/**","/css/**","/img/**")
                         .permitAll()
                 .requestMatchers(
                         "/producto/nuevo","/producto/guardar",
