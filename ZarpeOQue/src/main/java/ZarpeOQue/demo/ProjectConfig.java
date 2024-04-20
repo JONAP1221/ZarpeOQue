@@ -33,6 +33,11 @@ public class ProjectConfig implements WebMvcConfigurer{
     // localResolver se utiliza para crear una sesión de cambio de idioma
     
     @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
     public LocaleResolver localeResolver(){
         var slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.getDefault());

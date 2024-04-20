@@ -9,6 +9,7 @@ import ZarpeOQue.demo.domain.Usuario;
 import ZarpeOQue.demo.service.FirebaseStorageService;
 import ZarpeOQue.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
+    
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+    
     @Autowired
     private UsuarioService usuarioService;
 
@@ -40,7 +45,7 @@ public class UsuarioController {
     @Autowired
     private FirebaseStorageService firebaseStorageService;
 
-    @PostMapping("/guardar")
+   @PostMapping("/guardar")
     public String usuarioGuardar(Usuario usuario,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
@@ -51,6 +56,9 @@ public class UsuarioController {
                             "usuario",
                             usuario.getIdUsuario()));
         }
+        String contraseñaEncriptada = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(contraseñaEncriptada);
+        
         usuarioService.save(usuario,true);
         return "redirect:/usuario/listado";
     }
