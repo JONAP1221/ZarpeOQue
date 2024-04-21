@@ -1,6 +1,7 @@
 package ZarpeOQue.demo.controller;
 
 import ZarpeOQue.demo.domain.Producto;
+import ZarpeOQue.demo.service.CategoriaService;
 import ZarpeOQue.demo.service.ProductoService;
 import ZarpeOQue.demo.service.impl.FirebaseStorageServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -25,16 +26,22 @@ public class ProductoController {
     
     @Autowired
     private ProductoService productoService;
-
+    @Autowired
+    private CategoriaService categoriaService;
+    
     @GetMapping("/listado")
-    public String inicio(Model model) {
+    private String listado(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
+        
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
+        
+        model.addAttribute("totalProductos",productos.size());
         return "/producto/listado";
     }
     
-    @GetMapping("/nuevo")
+     @GetMapping("/nuevo")
     public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
@@ -48,7 +55,7 @@ public class ProductoController {
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
-                   firebaseStorageService.cargaImagen(
+                    firebaseStorageService.cargaImagen(
                             imagenFile, 
                             "producto", 
                             producto.getIdProducto()));
@@ -67,6 +74,10 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProductos(producto);
         model.addAttribute("producto", producto);
+        
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
+        
         return "/producto/modifica";
-    }
+    } 
 }//final de la clase

@@ -12,12 +12,22 @@ nav a:hover {
     border-radius: 30%;
 }
 
-.footerAbsoluto{
-    position: absolute !important;
-    bottom: 0 !important;
+.footer-container {
+    text-align: center; /* Centra el contenido del footer */
+}
+
+.footerAbsoluto {
+    position: fixed; /* Cambiado a "fixed" para mantener el footer fijo en la ventana del navegador */
+    bottom: 0; /* Fija el footer en la parte inferior de la ventana del navegador */
     width: 100%;
-    left: 50% !important;
     padding: 20px;
+    background-color: #27502c; /* Ajusta el color de fondo según sea necesario */
+    border-top: 1px solid #ccc; /* Opcional: agrega un borde superior para separar el footer del contenido */
+    z-index: 1000; /* Asegura que el footer esté en la parte superior */
+    left: 50%; /* Centra horizontalmente el footer */
+    transform: translateX(-50%); /* Centra horizontalmente el footer */
+    text-align: center;
+    color: #ffcb6f;
 }
 
 .p-footer{
@@ -41,14 +51,37 @@ nav a:hover {
     background: -webkit-linear-gradient(to right, #ffffff, #ffffff);
     background: linear-gradient(to right, #ffffff, #ffffff)
 }
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 20px; 
+}
+.imagen-categoria {
+  width: 200px; /* Ancho deseado para la imagen */
+  height: 175px; /* Altura automática para mantener la proporción */
+  margin-bottom: 20px;
+}
+
 
 .footer {
     position: fixed;
-    left: 0;
-    bottom: 0;
+    bottom: 0; 
     width: 100%;
+    left: 50%;
+    padding: 20px;
     background-color: #27502c;
     color: #ffcb6f;
     text-align: center;
-    padding: 20px;
+   
+    transform: translateX(-50%); 
+    
 }

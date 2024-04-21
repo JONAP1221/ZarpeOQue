@@ -4,6 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
         <title>ZarpeOQue</title>
+        <script src="rutinas.js"></script>
     </head>
     <body>
         <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
@@ -60,48 +61,22 @@
 
         <!-- 3 Sección principal para mostrar la informaccion de la entidad categoria -->
         <section th:fragment="listadoCategorias" id="categorias">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{categoria.listado}]]</h4>
-                            </div>
-                            <div th:if="${categorias != null and !categorias.empty}">
-                                <table class="table table-success table-striped table-hover">
-                                    <thead class="table-dark">
-                                        <tr><th>#</th>
-                                            <th>[[#{categoria.descripcion}]]</th>
-                                            <th></th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="categoria, contador : ${categorias}">
-                                            <td>[[${contador.count}]]</td>
-                                            <td>[[${categoria.descripcion}]]</td>
-                                            <td><a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
-                                                   class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
-                                                <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
-                                                   class="btn btn-success">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${categorias == null or categorias.empty}">
-                                <span>[[#{lista.vacia}]]</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-center bg-success text-white mb-3">
-                            <div class="card-body">
-                                <h3>[[#{categoria.total}]]</h3>
-                                <h4 class="fs-2"><i class="fa fa-cubes"></i> [[${totalCategorias}]]</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="card-container">
+                  <div th:each="categoria, contador : ${categorias}" class="card">
+                      <h5>[[${contador.count}]] - [[${categoria.descripcion}]]</h5>
+                      <!-- Asegúrate de que 'categoria.rutaImagen' contenga la URL completa -->
+                      <img th:if="${categoria.rutaImagen}" th:src="${categoria.rutaImagen}" alt="Imagen de Categoría" class="imagen-categoria" />
+                    
+                      <div>
+                          <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}" class="btn btn-danger">
+                              <i class="fas fa-trash"></i> Eliminar
+                          </a>
+                          <a th:href="@{/categoria/modificar/}+${categoria.idCategoria}" class="btn btn-success">
+                              <i class="fas fa-pencil-alt"></i> Modificar
+                          </a>
+                      </div>
+                  </div>
+              </div>
         </section>
 
         <!-- 4 Fragmento que se utiliza en la página modifica.html -->

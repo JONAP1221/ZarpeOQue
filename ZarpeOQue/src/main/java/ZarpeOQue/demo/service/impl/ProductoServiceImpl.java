@@ -15,14 +15,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ProductoServiceImpl implements ProductoService{
-
+    
     @Autowired
     private ProductoDao productoDao;
+
 
     @Override
     @Transactional(readOnly = true)
     public List<Producto> getProductos(boolean activos) {
         return productoDao.findAll();
+
     }
 
     @Override
@@ -42,4 +44,18 @@ public class ProductoServiceImpl implements ProductoService{
     public void delete(Producto producto) {
         productoDao.delete(producto);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioMin, double precioMax) {
+        
+        return productoDao.findByPrecioBrutoBetweenOrderByDescripcionAsc(precioMin, precioMax);
+        
+    }
+
+
+  
+    
+
+  
 }//Final de la clase

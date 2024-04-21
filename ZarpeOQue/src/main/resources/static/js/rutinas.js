@@ -20,4 +20,12 @@ function addCard(formulario) {
     url = url + '/' + valor;
     $("#resultsBlock").load(url);
 }
+function fixFooterPosition() {
+    var footerHeight = $('.footerAbsoluto').outerHeight();
+    $('body').css('padding-bottom', footerHeight + 'px');
+}
 
+$(document).ready(function() {
+    fixFooterPosition(); // Llama a la función cuando el documento esté listo
+});
+$(window).resize(fixFooterPosition);

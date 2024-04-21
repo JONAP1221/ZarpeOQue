@@ -1,11 +1,17 @@
 
 package ZarpeOQue.demo.dao;
 import ZarpeOQue.demo.domain.Producto;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
-/**
- *
- * @author Jonathan
- */
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+
+
 public interface ProductoDao extends JpaRepository<Producto, Long>{
+    
+    List<Producto> findByPrecioBrutoBetweenOrderByDescripcionAsc(double precioMin, double precioMax);
+     
+   
     
 }//final de la interface
