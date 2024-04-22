@@ -218,12 +218,33 @@
                                                
                                                 <div class="mb-3">
                                                     <label for="nombre">[[#{rol.nombre}]]</label>
-                                                    <input type="text" class="form-control" 
-                                                           name="nombre" th:field="*{nombre}"
-                                                           required="true">
-                                                    <a th:href="@{'/rol/guardar/' + ${usuario.idUsuario}}" class="btn btn-success">
-                                                            <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
-                                                        </a>
+                                                    <input type="text" class="form-control" name="nombre" id="nombreInput" required>
+                                                    <a id="agregarRolLink" class="btn btn-success" href="#" onclick="agregarRol()">
+                                                        <i class="fas fa-pencil"></i> [[#{accion.guardar}]]
+                                                    </a>
+                                                </div>
+
+                                                <script>
+                                                    function agregarRol() {
+                                                        var nombreInput = document.getElementById('nombreInput').value;
+                                                        var idUsuario = document.querySelector('input[name="idUsuario"]').value;
+
+                                                        console.error(nombreInput);
+
+                                                        // Validación de entrada
+                                                        if (!nombreInput || !idUsuario) {
+                                                            console.error('Nombre del rol o ID de usuario no válido.');
+                                                            return;
+                                                        }
+
+                                                        // Construye la URL del formulario
+                                                        var url = '/rol/guardar?nombre=' + encodeURIComponent(nombreInput) + '&idUsuario=' + encodeURIComponent(idUsuario);
+
+                                                        // Envía el formulario
+                                                        window.location.href = url;
+                                                    }
+                                                </script>
+                             
                                                 </div>
                                                
                                                 <div class="mb-3">

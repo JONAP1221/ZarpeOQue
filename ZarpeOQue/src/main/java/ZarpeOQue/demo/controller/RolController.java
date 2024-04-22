@@ -4,6 +4,7 @@
  */
 package ZarpeOQue.demo.controller;
 
+import ZarpeOQue.demo.dao.RolDao;
 import ZarpeOQue.demo.domain.Rol;
 import ZarpeOQue.demo.service.FirebaseStorageService;
 import ZarpeOQue.demo.service.RolService;
@@ -35,14 +36,18 @@ public class RolController {
         return "/rol/modifica";
     }
 
-   @PostMapping("/guardar")
-    public String usuarioGuardar(Rol rol) {
+   @GetMapping("/guardar")
+    public String rolGuardar(@RequestParam("nombre") String nombre, @RequestParam("idUsuario") String idUsuario) {
+        Long idUsu = Long.parseLong(idUsuario);
+        Rol rol = new Rol();
+        rol.setIdUsuario(idUsu);
+        rol.setNombre(nombre);
         rolService.save(rol);
-        return "redirect:/rol/listado";
+        return "redirect:/usuario/listado";
     }
 
     @GetMapping("/eliminar")
-    public String usuarioEliminar(@RequestParam("nombre") String nombre, @RequestParam("idUsuario") String idUsuario) {
+    public String rolEliminar(@RequestParam("nombre") String nombre, @RequestParam("idUsuario") String idUsuario) {
         // Validación de entrada
         if (nombre == null || idUsuario == null) {
             return "redirect:/error"; // Redirecciona a una página de error

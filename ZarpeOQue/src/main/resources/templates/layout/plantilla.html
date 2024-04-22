@@ -24,7 +24,7 @@
                             <ul class="navbar-nav align-items-center" style="margin-top: 10px; margin-bottom: 10px;">
                                 <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                                 <li class="nav-item px-2"><a class="nav-menu-link nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
-                                <li sec:authorize="hasRole('VENDEDOR')" class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
+                                <li sec:authorize="hasRole('ADMIN')" class="nav-item px-2"><a class="nav-link" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                                 <li><a class="dropdown-item" th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
                             </ul>
                             <ul class="navbar-nav">
