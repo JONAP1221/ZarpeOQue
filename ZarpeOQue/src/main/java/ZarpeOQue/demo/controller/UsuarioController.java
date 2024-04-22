@@ -5,9 +5,13 @@
 package ZarpeOQue.demo.controller;
 
 
+import ZarpeOQue.demo.dao.RolDao;
+import ZarpeOQue.demo.domain.Rol;
 import ZarpeOQue.demo.domain.Usuario;
 import ZarpeOQue.demo.service.FirebaseStorageService;
 import ZarpeOQue.demo.service.UsuarioService;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -22,6 +26,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
+    
+    @Autowired
+    private RolDao rolDao;
     
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;

@@ -42,7 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public Usuario getUsuarioPorUsernameYPassword(String username, String password) {
-        return usuarioDao.findByUsername(username);
+        return usuarioDao.findByUsernameAndPassword(username, password);
     }
 
     @Override
@@ -66,12 +66,17 @@ public class UsuarioServiceImpl implements UsuarioService{
             rol.setIdUsuario(usuario.getIdUsuario());
             rolDao.save(rol);
         }
-       
     }
-
+    
     @Override
     public void delete(Usuario usuario) {
         usuarioDao.delete(usuario);
+    }
+    
+    @Override
+    public Usuario getUsuarioById(Long idUsuario) {
+        // Implement the logic to retrieve a user by ID from your data source
+        return usuarioDao.findById(idUsuario).orElse(null); // Example if using Spring Data JPA
     }
     
 }

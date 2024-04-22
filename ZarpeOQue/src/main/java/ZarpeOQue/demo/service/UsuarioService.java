@@ -34,7 +34,9 @@ public interface UsuarioService {
     // Se actualiza un usuario si el id del usuario NO esta vacío
     public void save(Usuario usuario,boolean crearRolUser);
     
+    
     // Se elimina el usuario que tiene el id pasado por parámetro
     public void delete(Usuario usuario);
     
+    public Usuario getUsuarioById(Long idUsuario);
 }
