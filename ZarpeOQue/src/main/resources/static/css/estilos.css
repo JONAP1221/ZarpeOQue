@@ -35,11 +35,9 @@ nav a:hover {
 }
 
 .tablaCarrito {
-    position: static;
-    top: 30%;
+    position: relative;
     left: 68% !important;
     width: 30%;
-    transform: translateY(-30%);
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     padding: 15px;

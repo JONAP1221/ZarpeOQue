@@ -41,7 +41,7 @@ public class CarritoController {
         }
         model.addAttribute("carritoTotal",
                 carritoTotalVenta);
-        return "/carrito/listado";
+        return "/index";
     }
 
     //Para Agregar un producto al carrito
@@ -78,14 +78,14 @@ public class CarritoController {
     @GetMapping("/carrito/eliminar/{idProducto}")
     public String eliminarItem(Item item) {
         itemService.delete(item);
-        return "redirect:/carrito/listado";
+        return "redirect:/";
     }
     //Para actualizar un producto del carrito (cantidad)
 
     @PostMapping("/carrito/guardar")
     public String guardarItem(Item item) {
         itemService.actualiza(item);
-        return "redirect:/carrito/listado";
+        return "redirect:/";
     }
     //Para facturar los productos del carrito... no implementado...
 
