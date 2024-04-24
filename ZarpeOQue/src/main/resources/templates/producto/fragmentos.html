@@ -36,9 +36,9 @@
                             <h5 class="modal-title">[[#{producto.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/producto/guardar}" th:object="${producto}"
-                              method="POST" class="was-validated" enctype="multipart/form-data">
+                        <form th:action="@{/producto/guardar2}" th:object="${producto}" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
                             <div class="modal-body">
+
                                 <div class="mb-3">
                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
                                     <input type="text" class="form-control" name="descripcion" required="true"/>
@@ -47,10 +47,47 @@
                                     <label for="imagen">[[#{producto.imagen}]]</label>
                                     <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
                                     <img id="blah" src="#" alt="your image" height="200"/>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="descripcion" class="form-label">[[#{usuario.descripcion}]]</label>
+                                        <input type="text" class="form-control" name="descripcion" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.descripcion.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="detalle" class="form-label">[[#{usuario.detalle}]]</label>
+                                        <input type="text" class="form-control" name="detalle" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.detalle.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="precioBruto" class="form-label">[[#{usuario.precioBruto}]]</label>
+                                        <input type="number" class="form-control" name="precioBruto" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.precioBruto.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="precioNeto" class="form-label">[[#{usuario.precioNeto}]]</label>
+                                        <input type="number" class="form-control" name="precioNeto" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.precioNeto.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="existencias" class="form-label">[[#{usuario.existencias}]]</label>
+                                        <input type="number" class="form-control" name="existencias" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.existencias.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="categoria" class="form-label">[[#{usuario.idCategoria}]]</label>
+                                        <input type="number" class="form-control" name="categoria" required="true">
+                                        <div class="invalid-feedback">[[#{usuario.categoria.requerido}]]</div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="imagen" class="form-label">[[#{usuario.imagen}]]</label>
+                                        <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);">
+                                        <img id="blah" src="#" alt="Imagen" height="200">
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                <button class="btn btn-primary" type="submit">[[#{accion.guardar}]]</button>
                             </div>
                         </form>
                     </div>
@@ -143,18 +180,18 @@
                                                 <label for="precioBruto">[[#{producto.precioBruto}]]</label>
                                                 <input type="text" class="form-control" 
                                                        name="precioBruto" th:field="*{precioBruto}"
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="existencias">[[#{producto.existencias}]]</label>
-                                            <input type="text" class="form-control" 
-                                                   name="existencias" th:field="*{existencias}"
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="imagen">[[#{producto.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagenFile"
-                                               onchange="readURL(this);" />
-                                        <img id="blah" th:src="@{${producto.rutaImagen}}" alt="your image" height="200"/>
-                                    </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="existencias">[[#{producto.existencias}]]</label>
+                                                <input type="text" class="form-control" 
+                                                       name="existencias" th:field="*{existencias}"
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="imagen">[[#{producto.imagen}]]</label>
+                                                <input class="form-control" type="file" name="imagenFile"
+                                                       onchange="readURL(this);" />
+                                                <img id="blah" th:src="@{${producto.rutaImagen}}" alt="your image" height="200"/>
+                                            </div>
                                 </div>
                             </div>
                         </div>
