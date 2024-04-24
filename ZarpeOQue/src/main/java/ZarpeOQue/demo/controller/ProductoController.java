@@ -1,5 +1,6 @@
 package ZarpeOQue.demo.controller;
 
+import ZarpeOQue.demo.domain.Categoria;
 import ZarpeOQue.demo.domain.Producto;
 import ZarpeOQue.demo.service.CategoriaService;
 import ZarpeOQue.demo.service.ProductoService;
@@ -73,6 +74,30 @@ public class ProductoController {
         return "redirect:/producto/listado";
     }
 
+    @PostMapping("/guardar2")
+    public String productoGuardar2(Producto producto,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
+        if (!imagenFile.isEmpty()) {
+            producto.setRutaImagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile,
+                            "producto",
+                            producto.getIdProducto()));
+        }
+
+        List<Categoria> listaCategorias = categoriaService.getCategorias(false);
+        for (Categoria categoria : listaCategorias) {
+            if (categoria.getIdCategoria().equals(producto.getCategoria())) {
+                System.out.println("Categoría encontrada");
+                productoService.save(producto);
+                return "redirect:/producto/listado";
+            }
+        }
+        // Si llegamos aquí, la categoría no fue encontrada
+        System.out.println("Categoría no encontrada");
+        return "redirect:/producto/listado";
+    } 
+    
     @GetMapping("/eliminar/{idProducto}")
     public String productoEliminar(Producto producto) {
         productoService.delete(producto);
@@ -84,7 +109,7 @@ public class ProductoController {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
 
-        var categorias = categoriaService.getCategorias(false);
+        var categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
 
         return "/producto/modifica";
