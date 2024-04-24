@@ -38,9 +38,9 @@
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <!-- Este es el botón de login para usuarios no autenticados -->
                             <li class="nav-item text-light">
-                                    <a class="nav-link" th:href="@{/login}">
-                                        <i class="fas fa-sign-in-alt" style="color: white;"></i>
-                                    </a>
+                                <a class="nav-link" th:href="@{/login}">
+                                    <i class="fas fa-sign-in-alt" style="color: white;"></i>
+                                </a>
                             </li>
                         </ul>
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">
@@ -196,42 +196,77 @@
             </div>
         </section>
 
+        <section th:fragment="listadoCategorias">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 1" width="100" height="100">
+                                <h5 style="color: #6A8F6E;">Categoría 1</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 2" width="100" height="100">
+                                <h5 style="color: #A48790;">Categoría 2</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 3" width="100" height="100">
+                                <h5 style="color: #6A8F6E;">Categoría 3</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 4" width="100" height="100">
+                                <h5 style="color: #A48790;">Categoría 4</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 5" width="100" height="100">
+                                <h5 style="color: #6A8F6E;">Categoría 5</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="text-center">
+                            <img src="/img/jagermeister.png" alt="Categoría 6" width="100" height="100">
+                                <h5 style="color: #A48790;">Categoría 6</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <table th:fragment="tablaCarrito" class="table table-striped table-sm tablaCarrito position-absolute">
-            <thead class="table-dark">
-                <tr><th>#</th>
-                    <th>[[#{producto.descripcion}]]</th>
-                    <th>[[#{producto.precio}]]</th>
-                    <th></th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <!-- comment th:each="producto, contador : ${productos}"-->
-                    <td>1</td>
-                    <td>Nombre Producto 1</td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Nombre Producto 2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Nombre Producto 3</td>
-                    <td>2000</td>
-                </tr>
+        <section th:fragment="CarruselIndex">
+    <div class="container-fluid">
+        <div id="carouselExampleAutoplaying" class="carousel slide h-100" data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+                <div class="carousel-item active">
+                    <img src="/img/Carrusel1.png" class="d-block w-100 h-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/Carrusel2.png" class="d-block w-100 h-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/Carrusel3.png" class="d-block w-100 h-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
 
-            </tbody>
-            <tfoot class="table-dark">
-                <tr><th></th>
-                    <th>Precio Total: </th>
-                    <th>3500</th>
-                </tr>
-            </tfoot>
-        </table>
 
-        <footer class="footerAbsoluto">
+        <footer th:fragment="footer" class="footerAbsoluto">
             <section class="d-flex justify-content-center justify-content-lg-between border-bottom">
                 <div class="me-5 d-none d-lg-block">
                     <span>[[#{plantilla.redesSociales}]]</span>

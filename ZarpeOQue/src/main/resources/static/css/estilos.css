@@ -1,4 +1,5 @@
 .titulo {
+
     background-color: #27502c;
     color: #ffcb6f;
 }
@@ -17,7 +18,7 @@ nav a:hover {
 
 .footerAbsoluto {
     position: fixed; /* Cambiado a "fixed" para mantener el footer fijo en la ventana del navegador */
-    bottom: 0; /* Fija el footer en la parte inferior de la ventana del navegador */
+    bottom: 0px; /* Fija el footer en la parte inferior de la ventana del navegador */
     width: 100%;
     padding: 20px;
     background-color: #27502c; /* Ajusta el color de fondo según sea necesario */
@@ -28,6 +29,7 @@ nav a:hover {
     text-align: center;
     color: #ffcb6f;
 }
+
 
 .p-footer{
     padding: 0.5rem !important;
@@ -60,25 +62,25 @@ nav a:hover {
     padding: 20px;
     border-radius: 5px;
     background-color: white;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 .imagen-categoria {
-  width: 200px; /* Ancho deseado para la imagen */
-  height: 175px; /* Altura automática para mantener la proporción */
-  margin-bottom: 20px;
+    width: 200px; /* Ancho deseado para la imagen */
+    height: 175px; /* Altura automática para mantener la proporción */
+    margin-bottom: 20px;
 }
 
 
 .footer {
     position: fixed;
-    bottom: 0; 
+    bottom: 0;
     width: 100%;
     left: 50%;
     padding: 20px;
     background-color: #27502c;
     color: #ffcb6f;
     text-align: center;
-   
-    transform: translateX(-50%); 
-    
+
+    transform: translateX(-50%);
+
 }
