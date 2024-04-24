@@ -29,8 +29,6 @@
                             <li><a class="dropdown-item" th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
                         </ul>
                         <ul class="navbar-nav text-light">
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link text-light" th:href="@{/menu/inicio}">[[#{plantilla.login}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-menu-link nav-link text-light" th:href="@{/menu/registro}">[[#{plantilla.registro}]]</a></li>
                             <li class="nav-item px-2"><a class="nav-link text-light" th:href="@{/(lang=en)}">EN</a></li>
                             <li class="nav-item px-2"><a class="nav-link text-light" th:href="@{/(lang=es)}">ES</a></li>
                         </ul>
@@ -68,114 +66,6 @@
                 </div>
             </section>
         </header>
-
-
-        <section th:fragment="login" class="vh-100 gradient-custom">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                            <div class="card-body p-5 text-center">
-                                <div>
-                                    <h2 class="fw-bold mb-2 text-uppercase">[[#{login.login}]]</h2>
-                                    <p class="text-white-50 mb-5">[[#{login.descripcion}]]</p>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">[[#{usuario.correo}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
-                                    </div>
-                                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">[[#{login.password}]]</a></p>
-                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{login.login}]]</a>
-                                    <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                        <a href="https://www.facebook.com/LicoElZarpeoQue/" target="_blank" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                        <a href="https://www.instagram.com/zarpeoque/?hl=es" target="_blank" class="text-white"><i class="fab fa-instagram fa-lg mx-4 px-2"></i></a>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="mb-0">[[#{login.sinCuenta}]] <a href="#!" class="text-white-50 fw-bold">[[#{login.crearCuenta}]]</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section th:fragment="registro" class="vh-100 gradient-custom">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                            <div class="card-body p-5 text-center">
-                                <div class="d-grid gap-2 d-md-flex justify-content-center">
-                                    <button type="button" class="btn btn-secondary" disabled>Registro Cliente</button>
-                                    <a th:href="@{/menu/registroEmpleado}" class="btn btn-secondary">Registro Empleado</a><br>
-                                </div>
-                                <div>
-                                    <h2 class="fw-bold mb-2 text-uppercase">[[#{plantilla.registro}]]</h2>
-                                    <p class="text-white-50 mb-5">[[#{registro.descripcion}]]</p>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="text" id="typeNombreX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeNombreX">[[#{usuario.nombre}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailX">[[#{usuario.correo}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordX">[[#{usuario.password}]]</label>
-                                    </div>
-                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{registro.registro}]]</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section th:fragment="registroEmpleado" class="vh-100 gradient-custom">
-            <div class="container py-5 h-100">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                            <div class="card-body p-5 text-center">
-                                <div>
-                                    <div class="d-grid gap-2 d-md-flex justify-content-center">
-                                        <a th:href="@{/menu/registro}" class="btn btn-secondary">Registro Cliente</a>
-                                        <button type="button" class="btn btn-secondary" disabled>Registro Empleado</button><br>
-                                    </div>
-                                    <h2 class="fw-bold mb-2 text-uppercase">[[#{plantilla.registro}]]</h2>
-                                    <p class="text-white-50 mb-5">[[#{registro.descripcion}]]</p>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="text" id="typeIdEmpleado" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeIdEmpleado">[[#{empleado.id}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="text" id="typeNombreEmpleado" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeNombreEmpleado">[[#{usuario.nombre}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailEmpleado" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typeEmailEmpleado">[[#{usuario.correo}]]</label>
-                                    </div>
-                                    <div class="form-outline form-white mb-4">
-                                        <input type="password" id="typePasswordEmpleado" class="form-control form-control-lg" />
-                                        <label class="form-label" for="typePasswordEmpleado">[[#{usuario.password}]]</label>
-                                    </div>
-                                    <a class="btn btn-outline-light btn-lg px-5" th:href="@{/}" role="button">[[#{registro.registro}]]</a>
-                                </div>                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section th:fragment="botonMenuPrincipal">
             <div class="card" style="width: 18rem; bottom: 30%; position: fixed; left: 30px">

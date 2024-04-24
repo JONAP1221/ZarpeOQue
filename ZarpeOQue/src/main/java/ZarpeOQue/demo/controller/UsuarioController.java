@@ -69,6 +69,24 @@ public class UsuarioController {
         usuarioService.save(usuario,true);
         return "redirect:/usuario/listado";
     }
+    
+    @PostMapping("/guardar2")
+    public String usuarioGuardar2(Usuario usuario,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
+        if (!imagenFile.isEmpty()) {
+            usuarioService.save(usuario,false);
+            usuario.setRutaImagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile,
+                            "usuario",
+                            usuario.getIdUsuario()));
+        }
+        String contraseñaEncriptada = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(contraseñaEncriptada);
+        
+        usuarioService.save(usuario,true);
+        return "/index";
+    }
 
     @GetMapping("/eliminar/{idUsuario}")
     public String usuarioEliminar(Usuario usuario) {
