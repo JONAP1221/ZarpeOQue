@@ -53,7 +53,11 @@ public class ProductoServiceImpl implements ProductoService{
         
     }
 
-
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> getProductosByCategoria(Long idCategoria) {
+        return productoDao.findByCategoriaIdCategoria(idCategoria);
+    }
   
     
 

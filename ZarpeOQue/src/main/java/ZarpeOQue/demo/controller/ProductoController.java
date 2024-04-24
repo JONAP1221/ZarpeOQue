@@ -4,6 +4,7 @@ import ZarpeOQue.demo.domain.Producto;
 import ZarpeOQue.demo.service.CategoriaService;
 import ZarpeOQue.demo.service.ProductoService;
 import ZarpeOQue.demo.service.impl.FirebaseStorageServiceImpl;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,46 +19,57 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author Jonathan
  */
-
 @Controller
 @Slf4j
 @RequestMapping("/producto")
 public class ProductoController {
-    
+
     @Autowired
     private ProductoService productoService;
     @Autowired
     private CategoriaService categoriaService;
-    
+
     @GetMapping("/listado")
     private String listado(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-        
+
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        
-        model.addAttribute("totalProductos",productos.size());
+
+        model.addAttribute("totalProductos", productos.size());
         return "/producto/listado";
     }
-    
-     @GetMapping("/nuevo")
+
+    @GetMapping("/productos/listadoCategoriaX")
+    public String listadoCategoriaX(@RequestParam("categoriaId") Long categoria, Model model) {
+        // Aquí debes cargar los productos de la categoría especificada
+        List<Producto> productos = productoService.getProductosByCategoria(categoria);
+
+        // Agregar los productos al modelo
+        model.addAttribute("productos", productos);
+
+        // Devolver la vista que muestra los productos de la categoría
+        return "/ruta_de_tu_vista";
+    }
+
+    @GetMapping("/nuevo")
     public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
 
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-    
+
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "producto", 
+                            imagenFile,
+                            "producto",
                             producto.getIdProducto()));
         }
         productoService.save(producto);
@@ -74,10 +86,10 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
-        
+
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        
+
         return "/producto/modifica";
-    } 
+    }
 }//final de la clase

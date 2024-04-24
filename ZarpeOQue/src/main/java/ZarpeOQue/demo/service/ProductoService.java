@@ -23,6 +23,8 @@ public interface ProductoService {
     // Lista de productos con precio entre ordendados por descripción ConsultaAmpliada
    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioMin, double precioMax);
    
+   public List<Producto> getProductosByCategoria(Long idCategoria);
+   
     
   
 }//final de la interface
