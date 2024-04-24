@@ -1,4 +1,4 @@
- /* La siguiente función se utiliza para visualizar la imagen seleccionada en la
+/* La siguiente función se utiliza para visualizar la imagen seleccionada en la
  * página html donde se desea "cargar" utilizando un llamado "ajax"*/
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -25,7 +25,9 @@ function fixFooterPosition() {
     $('body').css('padding-bottom', footerHeight + 'px');
 }
 
-$(document).ready(function() {
+
+
+$(document).ready(function () {
     fixFooterPosition(); // Llama a la función cuando el documento esté listo
 });
 $(window).resize(fixFooterPosition);

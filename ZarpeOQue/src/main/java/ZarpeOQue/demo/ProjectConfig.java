@@ -80,7 +80,8 @@ public class ProjectConfig implements WebMvcConfigurer{
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/","/index","/errores/**",
                         "/carrito/**","/pruebas/**","/reportes/**",
-                        "/registro/**","/js/**","/webjars/**","/css/**","/img/**")
+                        "/registro/**","/js/**","/webjars/**","/css/**",
+                        "/img/**","/menu/**")
                         .permitAll()
                 .requestMatchers(
                         "/producto/nuevo","/producto/guardar",
@@ -120,7 +121,7 @@ public class ProjectConfig implements WebMvcConfigurer{
                 .roles("USER", "VENDEDOR")
                 .build();
         UserDetails user = User.builder()
-                .username("jhonatan")
+                .username("jonathan")
                 .password("{noop}guapo")
                 .roles("USER")
                 .build();

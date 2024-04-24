@@ -30,6 +30,7 @@ public class CarritoController {
         return "/index";
     }
     //Para ver el carrito
+   
 
     @GetMapping("/carrito/listado")
     public String inicio(Model model) {
@@ -41,7 +42,7 @@ public class CarritoController {
         }
         model.addAttribute("carritoTotal",
                 carritoTotalVenta);
-        return "/index";
+        return "/carrito/listado";
     }
 
     //Para Agregar un producto al carrito
@@ -49,7 +50,7 @@ public class CarritoController {
     public ModelAndView agregarItem(Model model, Item item) {
         Item item2 = itemService.get(item);
         if (item2 == null) {
-            Producto producto = productoService.getProductos(item);
+            Producto producto = productoService.getProducto(item);
             item2 = new Item(producto);
         }
         itemService.save(item2);
@@ -65,7 +66,7 @@ public class CarritoController {
         model.addAttribute("carritoTotal", carritoTotalVenta);
         return new ModelAndView("/carrito/fragmentos :: verCarrito");
     }
-    //Para mofificar un producto del carrito
+    //Para modificar un producto del carrito
 
     @GetMapping("/carrito/modificar/{idProducto}")
     public String modificarItem(Item item, Model model) {
@@ -78,14 +79,14 @@ public class CarritoController {
     @GetMapping("/carrito/eliminar/{idProducto}")
     public String eliminarItem(Item item) {
         itemService.delete(item);
-        return "redirect:/";
+        return "redirect:/carrito/listado";
     }
     //Para actualizar un producto del carrito (cantidad)
 
     @PostMapping("/carrito/guardar")
     public String guardarItem(Item item) {
         itemService.actualiza(item);
-        return "redirect:/";
+        return "redirect:/carrito/listado";
     }
     //Para facturar los productos del carrito... no implementado...
 

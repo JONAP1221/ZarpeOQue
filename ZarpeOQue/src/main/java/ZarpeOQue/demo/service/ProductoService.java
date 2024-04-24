@@ -11,7 +11,7 @@ public interface ProductoService {
     public List<Producto> getProductos(boolean activos);
     
    // Se obtiene un Producto, a partir del id de un producto
-    public Producto getProductos(Producto producto);
+    public Producto getProducto(Producto producto);
     
     // Se inserta un nuevo producto si el id del categoria esta vacío
     // Se actualiza un producto si el id del categoria NO esta vacío

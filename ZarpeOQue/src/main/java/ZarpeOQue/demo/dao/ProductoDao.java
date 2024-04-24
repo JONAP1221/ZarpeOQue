@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProductoDao extends JpaRepository<Producto, Long>{
     
-    List<Producto> findByPrecioBrutoBetweenOrderByDescripcionAsc(double precioMin, double precioMax);
+    List<Producto> findByPrecioNetoBetweenOrderByDescripcionAsc(double precioMin, double precioMax);
      
    
     

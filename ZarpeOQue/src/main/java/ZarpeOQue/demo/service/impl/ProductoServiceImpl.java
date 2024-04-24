@@ -29,7 +29,7 @@ public class ProductoServiceImpl implements ProductoService{
 
     @Override
     @Transactional(readOnly = true)
-    public Producto getProductos(Producto producto) {
+    public Producto getProducto(Producto producto) {
         return productoDao.findById(producto.getIdProducto()).orElse(null);
     }
 
@@ -49,7 +49,7 @@ public class ProductoServiceImpl implements ProductoService{
     @Transactional(readOnly = true)
     public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioMin, double precioMax) {
         
-        return productoDao.findByPrecioBrutoBetweenOrderByDescripcionAsc(precioMin, precioMax);
+        return productoDao.findByPrecioNetoBetweenOrderByDescripcionAsc(precioMin, precioMax);
         
     }
 
