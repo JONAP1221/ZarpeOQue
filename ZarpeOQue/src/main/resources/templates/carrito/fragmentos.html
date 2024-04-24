@@ -19,6 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">[[${producto.descripcion}]]</h5>
                             <figure>
+                                <img th:src="@{${producto.rutaImagen}}" height="200"/>
                                 <figcaption>[[${producto.precioNeto}+' ('+${producto.existencias}+')']]</figcaption>
                             </figure>
                             <form>
