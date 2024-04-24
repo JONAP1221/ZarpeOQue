@@ -68,7 +68,6 @@
                         <th class="text-center">[[#{producto.descripcion}]]</th>
                         <th class="text-center">[[#{producto.precio}]]</th>
                         <th class="text-center">[[#{producto.existencias}]]</th>
-                        <th class="text-center">[[#{producto.total}]]</th>
                         <th class="text-center">[[#{producto.categoria}]]</th>
                         <th></th>
                         <th></th>
@@ -83,8 +82,14 @@
                         <td class="fs-6">[[${producto.descripcion}]]</td>
                         <td class="text-end">[[${#numbers.formatDecimal(producto.precioNeto, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
                         <td class="text-center">[[${producto.existencias}]]</td>
-                        <td class="text-end">[[${#numbers.formatDecimal(producto.precioNeto * producto.existencias, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
                         <td>[[${producto.categoria.descripcion}]]</td>
+                        <td>
+                            <form>
+                                <input type="hidden" name="texto" th:value="${producto.idProducto}"/>
+                                <input type="hidden" name="texto" th:value="${producto.existencias}"/>
+                                <button class="btn btn-ligth"id="addCar"name="addCar" onclick="addCard(this.form)" type="button"><i class="fas fa-cart-plus"></i></button>
+                            </form>
+                        </td>
                         <td>
                             <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
                                class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">

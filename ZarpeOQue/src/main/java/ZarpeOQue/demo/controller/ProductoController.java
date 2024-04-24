@@ -41,16 +41,13 @@ public class ProductoController {
         return "/producto/listado";
     }
 
-    @GetMapping("/productos/listadoCategoriaX")
+    @GetMapping("/listadoCategoriaX")
     public String listadoCategoriaX(@RequestParam("categoriaId") Long categoria, Model model) {
-        // Aquí debes cargar los productos de la categoría especificada
         List<Producto> productos = productoService.getProductosByCategoria(categoria);
 
-        // Agregar los productos al modelo
         model.addAttribute("productos", productos);
 
-        // Devolver la vista que muestra los productos de la categoría
-        return "/ruta_de_tu_vista";
+        return "/producto/listadoCategoriaX";
     }
 
     @GetMapping("/nuevo")
