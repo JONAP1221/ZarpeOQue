@@ -77,12 +77,20 @@ public class ProductoController {
     @PostMapping("/guardar2")
     public String productoGuardar2(Producto producto,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
-        if (!imagenFile.isEmpty()) {
+        productoService.save(producto); // Guardar el producto en la base de datos
+        // Obtener el producto guardado para obtener su ID
+        Producto productoGuardado = productoService.getProducto(producto);
+        if (productoGuardado != null) {
+            // Si se encuentra el producto guardado, obtener su ID y cargar la imagen
             producto.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile,
                             "producto",
-                            producto.getIdProducto()));
+                            productoGuardado.getIdProducto()));
+        } else {
+            // Si no se encuentra el producto guardado, manejar el caso de error
+            log.error("Error al guardar el producto. No se pudo obtener el ID del producto guardado.");
+            // Podrías lanzar una excepción, mostrar un mensaje de error al usuario, etc.
         }
 
         List<Categoria> listaCategorias = categoriaService.getCategorias(false);
@@ -96,7 +104,7 @@ public class ProductoController {
         // Si llegamos aquí, la categoría no fue encontrada
         System.out.println("Categoría no encontrada");
         return "redirect:/producto/listado";
-    } 
+    }
     
     @GetMapping("/eliminar/{idProducto}")
     public String productoEliminar(Producto producto) {

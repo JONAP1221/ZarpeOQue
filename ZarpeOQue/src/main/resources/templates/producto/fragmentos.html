@@ -49,40 +49,36 @@
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label for="descripcion" class="form-label">[[#{usuario.descripcion}]]</label>
+                                        <label for="descripcion" class="form-label">[[#{producto.descripcion}]]</label>
                                         <input type="text" class="form-control" name="descripcion" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.descripcion.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.descripcion.requerido}]]</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="detalle" class="form-label">[[#{usuario.detalle}]]</label>
+                                        <label for="detalle" class="form-label">[[#{producto.detalle}]]</label>
                                         <input type="text" class="form-control" name="detalle" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.detalle.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.detalle.requerido}]]</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="precioBruto" class="form-label">[[#{usuario.precioBruto}]]</label>
+                                        <label for="precioBruto" class="form-label">[[#{producto.precioBruto}]]</label>
                                         <input type="number" class="form-control" name="precioBruto" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.precioBruto.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.precioBruto.requerido}]]</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="precioNeto" class="form-label">[[#{usuario.precioNeto}]]</label>
+                                        <label for="precioNeto" class="form-label">[[#{producto.precioNeto}]]</label>
                                         <input type="number" class="form-control" name="precioNeto" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.precioNeto.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.precioNeto.requerido}]]</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="existencias" class="form-label">[[#{usuario.existencias}]]</label>
+                                        <label for="existencias" class="form-label">[[#{producto.existencias}]]</label>
                                         <input type="number" class="form-control" name="existencias" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.existencias.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.existencias.requerido}]]</div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="categoria" class="form-label">[[#{usuario.idCategoria}]]</label>
+                                        <label for="categoria" class="form-label">[[#{categoria.idCategoria}]]</label>
                                         <input type="number" class="form-control" name="categoria" required="true">
-                                        <div class="invalid-feedback">[[#{usuario.categoria.requerido}]]</div>
+                                        <div class="invalid-feedback">[[#{producto.categoria.requerido}]]</div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="imagen" class="form-label">[[#{usuario.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);">
-                                        <img id="blah" src="#" alt="Imagen" height="200">
-                                    </div>
+                                    
 
                                 </div>
                             </div>
